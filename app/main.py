@@ -1,7 +1,7 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from app.database import engine, Base
-from app.routers import auth, doctors, patients
+from app.routers import auth, doctors, patients, appointments
 
 
 @asynccontextmanager
@@ -16,6 +16,7 @@ app.include_router(auth.router)
 app.include_router(doctors.register_router)
 app.include_router(doctors.router)
 app.include_router(patients.router)
+app.include_router(appointments.router)
 
 
 @app.get("/")
