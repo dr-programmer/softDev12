@@ -4,3 +4,4 @@ __pycache__/
 *.db
 .pytest_cache/
 SEng_coursework_assignment.pdf
+generate_pdf.py
