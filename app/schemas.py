@@ -1,5 +1,5 @@
 from datetime import date, datetime
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, ConfigDict, EmailStr
 
 
 # --- Working Hours ---
@@ -40,8 +40,7 @@ class DoctorResponse(BaseModel):
     role: str
     working_hours: list[WorkingHoursEntry]
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class UpdateWorkingHoursRequest(BaseModel):
@@ -69,8 +68,7 @@ class ScheduleChangeResponse(BaseModel):
     end_date: date | None
     working_hours: list[WorkingHoursEntry]
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 # --- Patient ---
@@ -91,8 +89,7 @@ class PatientResponse(BaseModel):
     doctor_id: int
     role: str
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 # --- Appointment ---
@@ -110,5 +107,4 @@ class AppointmentResponse(BaseModel):
     end_time: datetime
     status: str
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
