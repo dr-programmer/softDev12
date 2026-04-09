@@ -13,6 +13,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(title="Doctor Appointment Booking API", lifespan=lifespan)
 
 app.include_router(auth.router)
+app.include_router(doctors.register_router)
 app.include_router(doctors.router)
 app.include_router(patients.router)
 
