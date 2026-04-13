@@ -111,7 +111,7 @@ def add_temporary_schedule_change(
 
     if request.end_date < request.effective_date:
         raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            status_code=422,
             detail="End date must be after or equal to effective date.",
         )
 
@@ -165,7 +165,7 @@ def add_permanent_schedule_change(
     min_date = date.today() + timedelta(weeks=1)
     if request.effective_date < min_date:
         raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            status_code=422,
             detail=f"Effective date must be at least one week in the future (earliest: {min_date}).",
         )
 
